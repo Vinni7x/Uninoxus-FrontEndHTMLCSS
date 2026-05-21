@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uninoxus — Dashboard do Aluno</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-info">
+      <h1 id="aluno-nome">Carregando...</h1>
+      <p id="aluno-curso">—</p>
+    </div>
+    <div class="cr-badge" id="aluno-cr">CR: —</div>
+  </header>
+
+  <nav class="actions">
+    <button class="btn btn-primary" onclick="window.location.href='turmas-abertas.html'">
+      Consultar Turmas Abertas
+    </button>
+    <button class="btn btn-outline" onclick="window.location.href='notas.html'">
+      Minhas Notas
+    </button>
+  </nav>
+
+  <main class="main">
+
+    <section>
+      <h2 class="section-title">Turmas do semestre</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Componente Curricular</th>
+              <th>Local</th>
+              <th>Horário</th>
+              <th>Dias da Semana</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="turmas-tbody">
+            <tr><td colspan="5" class="state-msg">Carregando turmas...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Provas</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Disciplina</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody id="provas-tbody">
+            <tr><td colspan="4" class="state-msg">Carregando provas...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

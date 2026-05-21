@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0d1b3e;
+  --navy-mid: #1a2f5e;
+  --blue: #1e4db7;
+  --blue-light: #2d6ae0;
+  --gold: #e8a020;
+  --gold-light: #f5b942;
+  --table-header: #3a6bc4;
+  --card-bg: #c8daf5;
+  --card-border: #8ab4d8;
+  --card-hover: #b0c8f0;
+  --tag-green: #4cbb6e;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #3a3a5c;
+  --shadow: 0 4px 24px rgba(13,27,62,0.13);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #e8eef8;
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-bottom: 3px solid var(--gold);
+  padding: 20px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-info p {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ─── ACTIONS ─────────────────────────────────── */
+.actions {
+  padding: 14px 36px;
+  display: flex;
+  gap: 12px;
+  background: #f0f4fb;
+  border-bottom: 1px solid #d0daf0;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ─── MAIN ────────────────────────────────────── */
+.main {
+  padding: 28px 36px;
+}
+
+/* ─── TÍTULO DA SEÇÃO ─────────────────────────── */
+.secao-titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.secao-titulo::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ─── GRID ────────────────────────────────────── */
+.turmas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+/* ─── CARD ────────────────────────────────────── */
+.turma-card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.35s ease forwards;
+  opacity: 0;
+  transition: background 0.15s;
+}
+
+.turma-card:hover {
+  background: var(--card-hover);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-disciplina {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.card-info {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.card-info span {
+  font-weight: 400;
+}
+
+/* ─── BOTÃO MATRICULAR ────────────────────────── */
+.btn-matricular {
+  margin-top: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background 0.18s, transform 0.1s;
+}
+
+.btn-matricular:hover:not(:disabled) {
+  background: var(--gold-light);
+  transform: scale(1.04);
+}
+
+.btn-matricular:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-matricular:disabled {
+  background: #aaa;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* ─── FEEDBACK ────────────────────────────────── */
+.feedback {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  min-height: 16px;
+  margin-top: 4px;
+}
+
+.feedback.sucesso {
+  color: #2e7d32;
+}
+
+.feedback.erro {
+  color: #c62828;
+}
+
+/* ─── ESTADO VAZIO / LOADING ──────────────────── */
+.state-grid {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--text-mid);
+  font-size: 0.88rem;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #c0d0f0;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.sem-turmas {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: var(--text-mid);
+  font-size: 0.88rem;
+}

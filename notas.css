@@ -1,0 +1,114 @@
+/* ─── NOTAS GRID ──────────────────────────────── */
+.notas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ─── CARD DE DISCIPLINA ──────────────────────── */
+.nota-card {
+  background: #b8d4f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.35s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nota-card-header {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 8px 8px 0 0;
+}
+
+.nota-card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ─── LINHA DE NOTA ───────────────────────────── */
+.nota-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.nota-linha:last-of-type {
+  border-bottom: none;
+}
+
+.nota-linha .label {
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-mid);
+}
+
+.nota-linha .valor {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.nota-linha .valor.vazio {
+  color: #999;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ─── SITUAÇÃO ────────────────────────────────── */
+.situacao-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.situacao-MATRICULADO  { background: #c8f0c8; color: #1a5c1a; border: 1px solid #7ec87e; }
+.situacao-APROVADO     { background: #c8f0c8; color: #1a5c1a; border: 1px solid #7ec87e; }
+.situacao-REPROVADO    { background: #fde8e8; color: #8b1a1a; border: 1px solid #f0a0a0; }
+.situacao-CANCELADA    { background: #e8e8e8; color: #555;    border: 1px solid #bbb; }
+
+/* ─── LOADING ─────────────────────────────────── */
+.state-grid {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-mid);
+  font-size: 0.88rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #d0daf0;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

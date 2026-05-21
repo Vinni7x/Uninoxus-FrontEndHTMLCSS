@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uninoxus — Relatório de Notas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="notas.css" />
+</head>
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-info">
+      <h1 id="aluno-nome">Carregando...</h1>
+      <p id="aluno-curso">—</p>
+    </div>
+  </header>
+
+  <!-- ─── ACTIONS ─────────────────────────────────────────────── -->
+  <nav class="actions">
+    <button class="btn btn-outline" onclick="window.location.href='dashboard.html'">
+      ← Voltar ao Dashboard
+    </button>
+  </nav>
+
+  <!-- ─── MAIN ─────────────────────────────────────────────────── -->
+  <main class="main">
+
+    <h2 class="section-title" style="justify-content:center; font-size:1.1rem;">
+      Relatório de Notas do Aluno
+    </h2>
+
+    <div class="notas-grid" id="notasGrid">
+      <div class="state-grid">
+        <div class="spinner"></div>
+        <p>Carregando notas...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="notas.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0d1b3e;
+  --navy-mid: #1a2f5e;
+  --blue: #1e4db7;
+  --blue-light: #2d6ae0;
+  --gold: #e8a020;
+  --gold-light: #f5b942;
+  --table-header: #3a6bc4;
+  --table-row-light: #c8daf5;
+  --table-row-dark: #b0c8f0;
+  --tag-green: #4cbb6e;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #3a3a5c;
+  --shadow: 0 4px 24px rgba(13,27,62,0.13);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #e8eef8;
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-bottom: 3px solid var(--gold);
+  padding: 20px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-info p {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.cr-badge {
+  background: var(--blue-light);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 24px;
+  border: 2px solid var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* ─── ACTIONS ─────────────────────────────────── */
+.actions {
+  padding: 18px 36px;
+  display: flex;
+  gap: 12px;
+  background: #f0f4fb;
+  border-bottom: 1px solid #d0daf0;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.btn-primary:hover {
+  background: var(--blue-light);
+  border-color: var(--blue-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ─── MAIN CONTENT ────────────────────────────── */
+.main {
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ─── SECTION TITLE ───────────────────────────── */
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ─── TABLE ───────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: var(--table-header);
+}
+
+thead th {
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--table-row-light);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--table-row-dark);
+}
+
+tbody tr:hover {
+  background: #a8bfe8;
+  transition: background 0.15s;
+}
+
+tbody td {
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* ─── DIAS TAG ────────────────────────────────── */
+.dias-tag {
+  display: inline-block;
+  background: var(--white);
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ─── PROVA TAG ───────────────────────────────── */
+.prova-tag {
+  display: inline-block;
+  background: var(--tag-green);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 3px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ─── LOADING / ERROR ─────────────────────────── */
+.state-msg {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-mid);
+  font-size: 0.85rem;
+}
+
+.error-msg {
+  color: #c0392b;
+}
+
+/* ─── MODAL ───────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,27,62,0.55);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.ativo {
+  display: flex;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 40px rgba(13,27,62,0.25);
+  padding: 28px 32px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.modal-desc {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+}
+
+.modal-select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid #c0cce8;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: var(--text-dark);
+  background: #f5f8ff;
+  outline: none;
+  cursor: pointer;
+}
+
+.modal-select:focus {
+  border-color: var(--blue);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.modal-feedback {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: none;
+}
+
+.modal-feedback.sucesso {
+  background: #edf5ec;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  display: block;
+}
+
+.modal-feedback.erro {
+  background: #fdecea;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  display: block;
+}
+
+/* ─── BOTÕES DE AÇÃO NA TABELA ────────────────── */
+.btn-acao {
+  padding: 5px 14px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-cancelar {
+  background: transparent;
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+.btn-cancelar:hover {
+  background: #c0392b;
+  color: var(--white);
+}
+
+.btn-consolidar {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-consolidar:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-cancelada {
+  background: #e8e8e8;
+  color: #888;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
