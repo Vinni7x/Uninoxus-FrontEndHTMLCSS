@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uninoxus — Lançar Notas</title>
+  <link rel="stylesheet" href="lancar-notas.css" />
+</head>
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header-info">
+      <h1 id="prof-nome">Carregando...</h1>
+      <p id="info-avaliacao">—</p>
+    </div>
+  </header>
+
+  <!-- ─── ACTIONS ─────────────────────────────────────────── -->
+  <nav class="actions">
+    <button class="btn btn-outline" onclick="window.history.back()">
+      ← Voltar
+    </button>
+  </nav>
+
+  <!-- ─── MAIN ─────────────────────────────────────────────── -->
+  <main class="main">
+    <h2 class="section-title" id="titulo-secao">Lançar Notas</h2>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Matrícula</th>
+            <th>Nome do Aluno</th>
+            <th>Nota</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="alunos-tbody">
+          <tr>
+            <td colspan="4" class="state-msg">Carregando alunos...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="lancar-notas.js"></script>
+</body>
+</html>

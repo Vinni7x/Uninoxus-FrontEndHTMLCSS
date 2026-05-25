@@ -1,6 +1,6 @@
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const API_BASE = 'http://localhost:8081';
-const MATRICULA_ALUNO = 2;
+const MATRICULA_ALUNO = 1;
 
 // ─── FETCHES ──────────────────────────────────────────────────────────────────
 async function fetchAluno(id) {

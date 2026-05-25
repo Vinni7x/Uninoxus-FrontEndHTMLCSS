@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uninoxus — Registrar Prova</title>
+  <link rel="stylesheet" href="registrar-prova.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-info">
+      <h1 id="professor-nome">Carregando...</h1>
+      <p id="info-turma">—</p>
+    </div>
+  </header>
+
+  <nav class="actions">
+    <button class="btn btn-outline" onclick="window.history.back()">
+      ← Voltar
+    </button>
+  </nav>
+
+  <main class="main">
+    <h2 class="section-title">Registrar Prova</h2>
+
+    <div class="form-card">
+
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao" placeholder="Ex: Prova sobre estruturas de dados" />
+      </div>
+
+      <div class="form-group">
+        <label for="data">Data</label>
+        <input type="date" id="data" />
+      </div>
+
+      <div class="form-group">
+        <label for="tipo">Tipo de Avaliação</label>
+        <select id="tipo">
+          <option value="">Selecione...</option>
+          <option value="AV1">1ª Prova</option>
+          <option value="AV2">2ª Prova</option>
+          <option value="AV3">3ª Prova</option>
+          <option value="REPOSICAO">Reposição</option>
+          <option value="FINAL">Final</option>
+        </select>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <button class="btn-salvar" id="btn-salvar" onclick="salvar()">
+        REGISTRAR PROVA
+      </button>
+
+    </div>
+  </main>
+
+  <script src="registrar-prova.js"></script>
+</body>
+</html>

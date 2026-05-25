@@ -33,7 +33,7 @@ function renderTurmas(turmas) {
   tbody.innerHTML = '';
 
   if (!turmas || turmas.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" class="state-msg">Nenhuma turma encontrada.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" class="state-msg">Nenhuma turma encontrada.</td></tr>`;
     return;
   }
 
@@ -52,6 +52,13 @@ function renderTurmas(turmas) {
           ${consolidada ? 'Consolidada ✓' : 'Consolidar Turma'}
         </button>
       </td>
+      <td>
+        <button
+          class="btn-acao btn-registrar"
+          onclick="window.location.href='registrar-prova.html?idTurma=${t.idTurma}'">
+          Registrar Provas
+        </button>
+      </td>
     `;
     tbody.appendChild(tr);
   });
@@ -63,7 +70,7 @@ function renderProvas(provas) {
   tbody.innerHTML = '';
 
   if (!provas || provas.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" class="state-msg">Nenhuma prova cadastrada.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="state-msg">Nenhuma prova cadastrada.</td></tr>`;
     return;
   }
 
@@ -74,6 +81,16 @@ function renderProvas(provas) {
       <td>${p.nomeDisciplina ?? '—'}</td>
       <td>${p.descricaoAvaliacao ?? '—'}</td>
       <td><span class="prova-tag">${formatarTipoAvaliacao(p.tipoAvaliacao)}</span></td>
+      <td class="acoes-col">
+        <button class="btn-acao btn-finalizar" disabled title="Em breve">
+          Finalizar Prova
+        </button>
+        <button
+          class="btn-acao btn-lancar-nota"
+          onclick="window.location.href='lancar-notas.html?idAvaliacao=${p.idAvaliacao}&idTurma=${p.idTurma}'">
+          Lançar Notas
+        </button>
+      </td>
     `;
     tbody.appendChild(tr);
   });
@@ -87,10 +104,10 @@ async function consolidarTurma(idTurma, btn) {
   btn.textContent = 'Consolidando...';
 
   try {
-    const r = await fetch(`${API_BASE}/turmas/${idTurma}`, { method: 'POST' });
+    const r = await fetch(`${API_BASE}/turmas/${idTurma}/consolidar`, { method: 'PUT' });
     if (!r.ok) {
       let msg = 'Não foi possível consolidar a turma.';
-      try { const err = await r.json(); msg = err.message ?? err ?? msg; } catch (_) {}
+      try { const err = await r.json(); msg = err.message ?? msg; } catch (_) {}
       throw new Error(msg);
     }
 
@@ -134,10 +151,10 @@ async function init() {
   else { console.warn(professor.reason); document.getElementById('professor-nome').textContent = 'Erro ao carregar perfil'; }
 
   if (turmas.status === 'fulfilled') renderTurmas(turmas.value);
-  else { console.warn(turmas.reason); document.getElementById('turmas-tbody').innerHTML = `<tr><td colspan="5" class="state-msg error-msg">Erro ao carregar turmas.</td></tr>`; }
+  else { console.warn(turmas.reason); document.getElementById('turmas-tbody').innerHTML = `<tr><td colspan="6" class="state-msg error-msg">Erro ao carregar turmas.</td></tr>`; }
 
   if (provas.status === 'fulfilled') renderProvas(provas.value);
-  else { console.warn(provas.reason); document.getElementById('provas-tbody').innerHTML = `<tr><td colspan="4" class="state-msg error-msg">Erro ao carregar provas.</td></tr>`; }
+  else { console.warn(provas.reason); document.getElementById('provas-tbody').innerHTML = `<tr><td colspan="5" class="state-msg error-msg">Erro ao carregar provas.</td></tr>`; }
 }
 
-document.addEventListener('DOMContentLoaded', init); 
+document.addEventListener('DOMContentLoaded', init);

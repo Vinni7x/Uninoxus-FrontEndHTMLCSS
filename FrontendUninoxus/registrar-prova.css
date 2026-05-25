@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0d1b3e;
+  --navy-mid: #1a2f5e;
+  --blue: #1e4db7;
+  --blue-light: #2d6ae0;
+  --gold: #e8a020;
+  --gold-light: #f5b942;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #3a3a5c;
+  --shadow: 0 4px 24px rgba(13,27,62,0.13);
+  --radius: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #e8eef8;
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-bottom: 3px solid var(--gold);
+  padding: 20px 36px;
+}
+
+.header-info h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-info p {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ─── ACTIONS ─────────────────────────────────── */
+.actions {
+  padding: 14px 36px;
+  background: #f0f4fb;
+  border-bottom: 1px solid #d0daf0;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ─── MAIN ────────────────────────────────────── */
+.main {
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── SECTION TITLE ───────────────────────────── */
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ─── FORM CARD ───────────────────────────────── */
+.form-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 35px;
+  max-width: 720px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── FORM GROUP ──────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1.5px solid #c0d0f0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--blue);
+}
+
+/* ─── FEEDBACK ────────────────────────────────── */
+.feedback {
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+.feedback.sucesso { color: #2e7d32; }
+.feedback.erro    { color: #c62828; }
+
+/* ─── BOTÃO SALVAR ────────────────────────────── */
+.btn-salvar {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 28px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.18s, transform 0.1s;
+}
+
+.btn-salvar:hover:not(:disabled) {
+  background: var(--blue-light);
+  transform: scale(1.03);
+}
+
+.btn-salvar:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}

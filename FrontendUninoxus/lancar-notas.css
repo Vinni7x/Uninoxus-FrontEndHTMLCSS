@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0d1b3e;
+  --navy-mid: #1a2f5e;
+  --blue: #1e4db7;
+  --blue-light: #2d6ae0;
+  --gold: #e8a020;
+  --gold-light: #f5b942;
+  --table-header: #3a6bc4;
+  --table-row-light: #c8daf5;
+  --table-row-dark: #b0c8f0;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #3a3a5c;
+  --shadow: 0 4px 24px rgba(13,27,62,0.13);
+  --radius: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #e8eef8;
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-bottom: 3px solid var(--gold);
+  padding: 20px 36px;
+}
+
+.header-info h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-info p {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ─── ACTIONS ─────────────────────────────────── */
+.actions {
+  padding: 14px 36px;
+  background: #f0f4fb;
+  border-bottom: 1px solid #d0daf0;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ─── MAIN ────────────────────────────────────── */
+.main { padding: 28px 36px; }
+
+/* ─── SECTION TITLE ───────────────────────────── */
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ─── CARD / TABLE ────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: var(--table-header);
+}
+
+thead th {
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  text-align: left;
+}
+
+tbody tr:nth-child(odd)  { background: var(--table-row-light); }
+tbody tr:nth-child(even) { background: var(--table-row-dark); }
+tbody tr:hover { background: #a8bfe8; transition: background 0.15s; }
+
+tbody td {
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* ─── INPUT NOTA ──────────────────────────────── */
+.input-nota {
+  width: 80px;
+  padding: 5px 8px;
+  border: 1.5px solid var(--blue);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-nota:focus {
+  border-color: var(--gold);
+}
+
+/* ─── BOTÃO LANÇAR ────────────────────────────── */
+.btn-lancar {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.1s;
+}
+
+.btn-lancar:hover:not(:disabled) {
+  background: var(--blue-light);
+  transform: scale(1.04);
+}
+
+.btn-lancar:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* ─── FEEDBACK INLINE ─────────────────────────── */
+.feedback-inline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.feedback-inline.sucesso { color: #2e7d32; }
+.feedback-inline.erro    { color: #c62828; }
+
+/* ─── ESTADO ──────────────────────────────────── */
+.state-msg {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-mid);
+  font-size: 0.85rem;
+}
+
+.error-msg { color: #c0392b; }

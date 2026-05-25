@@ -1,7 +1,7 @@
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const API_BASE = 'http://localhost:8081';
 
-const MATRICULA_ALUNO = 2; // futuramente via autenticação
+const MATRICULA_ALUNO = 1; // futuramente via autenticação
 const ID_CURSO = 1;        // substituir por perfilAluno.idCurso quando disponível
 
 // ─── FETCHES ──────────────────────────────────────────────────────────────────

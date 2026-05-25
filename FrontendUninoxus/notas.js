@@ -1,6 +1,6 @@
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const API_BASE = 'http://localhost:8081';
-const MATRICULA_ALUNO = 2; // futuramente via autenticação
+const MATRICULA_ALUNO = 1; // futuramente via autenticação
 
 // ─── FETCHES ──────────────────────────────────────────────────────────────────
 async function fetchPerfilAluno(matriculaAluno) {
@@ -46,6 +46,7 @@ function renderNotas(notas) {
         ${linhaNote('Unidade 3', n.av3)}
         ${linhaNote('Reposição', n.reposicao)}
         ${linhaNote('Final',     n.finalNota)}
+        ${linhaNote('Média Final',     n.mediaFinal)}
         <span class="situacao-badge situacao-${n.situacao ?? 'MATRICULADO'}">
           SITUAÇÃO: ${n.situacao ?? '—'}
         </span>
