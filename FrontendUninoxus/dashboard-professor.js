@@ -82,18 +82,27 @@ function renderProvas(provas) {
       <td>${p.descricaoAvaliacao ?? '—'}</td>
       <td><span class="prova-tag">${formatarTipoAvaliacao(p.tipoAvaliacao)}</span></td>
       <td class="acoes-col">
-        <button class="btn-acao btn-finalizar" disabled title="Em breve">
+        <button class="btn-acao btn-finalizar">
           Finalizar Prova
         </button>
-        <button
-          class="btn-acao btn-lancar-nota"
-          onclick="window.location.href='lancar-notas.html?idAvaliacao=${p.idAvaliacao}&idTurma=${p.idTurma}'">
+        <button class="btn-acao btn-lancar-nota">
           Lançar Notas
         </button>
       </td>
     `;
+    
+    // ✅ Adicionar listener ao botão de finalizar prova
+    tr.querySelector('.btn-finalizar').addEventListener('click', () => {
+      finalizarProva(p.idAvaliacao);
+    });
+    
+    // Adicionar event listener ao botão de lançar notas
+    tr.querySelector('.btn-lancar-nota').addEventListener('click', () => {
+      window.location.href = `lancar-notas.html?idAvaliacao=${p.idAvaliacao}&idTurma=${p.idTurma}`;
+    });
+    
     tbody.appendChild(tr);
-  });
+  });  
 }
 
 // ─── CONSOLIDAR TURMA ─────────────────────────────────────────────────────────
@@ -118,6 +127,24 @@ async function consolidarTurma(idTurma, btn) {
     alert(e.message);
     btn.disabled = false;
     btn.textContent = 'Consolidar Turma';
+  }
+}
+
+// ─── FINALIZAR PROVA ──────────────────────────────────────────────────────────
+async function finalizarProva(idAvaliacao) {
+  if (!confirm('Deseja finalizar esta prova? Esta ação não pode ser desfeita.')) return;
+
+  try {
+    const r = await fetch(`${API_BASE}/avaliacoes/${idAvaliacao}/finalizar`, { 
+      method: 'PATCH' 
+    });
+    
+    if (!r.ok) throw new Error('Erro ao finalizar prova.');
+
+    alert('Prova finalizada com sucesso!');
+    location.reload();
+  } catch (e) {
+    alert(e.message);
   }
 }
 
