@@ -85,7 +85,7 @@ async function cancelarMatricula(idMatricula, btn) {
   btn.textContent = 'Cancelando...';
 
   try {
-    const r = await fetch(`${API_BASE}/matriculas/${idMatricula}/cancelar`, { method: 'PATCH' });
+    const r = await fetch(`${API_BASE}/matriculas/${idMatricula}/cancelar`, { method: 'POST' });
     if (!r.ok) {
   let msg = 'Não foi possível cancelar a matrícula.';
   try {

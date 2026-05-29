@@ -91,7 +91,7 @@ function renderProvas(provas) {
       </td>
     `;
     
-    // ✅ Adicionar listener ao botão de finalizar prova
+    //Adicionar listener ao botão de finalizar prova
     tr.querySelector('.btn-finalizar').addEventListener('click', () => {
       finalizarProva(p.idAvaliacao);
     });
@@ -113,7 +113,7 @@ async function consolidarTurma(idTurma, btn) {
   btn.textContent = 'Consolidando...';
 
   try {
-    const r = await fetch(`${API_BASE}/turmas/${idTurma}/consolidar`, { method: 'PUT' });
+    const r = await fetch(`${API_BASE}/turmas/${idTurma}/consolidar`, { method: 'POST' });
     if (!r.ok) {
       let msg = 'Não foi possível consolidar a turma.';
       try { const err = await r.json(); msg = err.message ?? msg; } catch (_) {}
@@ -136,7 +136,7 @@ async function finalizarProva(idAvaliacao) {
 
   try {
     const r = await fetch(`${API_BASE}/avaliacoes/${idAvaliacao}/finalizar`, { 
-      method: 'PATCH' 
+      method: 'POST' 
     });
     
     if (!r.ok) throw new Error('Erro ao finalizar prova.');

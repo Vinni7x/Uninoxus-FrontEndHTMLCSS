@@ -83,7 +83,7 @@ function criarCard(turma, index) {
             class="btn-matricular"
             id="btn-${index}"
             ${semVagas ? 'disabled' : ''}
-            onclick="matricular(${turma.idTurma}, ${index})"  >${semVagas ? 'SEM VAGAS' : 'MATRICULAR'}</button>
+            onclick="matricular(${turma.idTurma}, ${index})"  >${semVagas ? 'SEM VAGAS' : 'SOLICITAR MATRICULAR'}</button>
         <div class="feedback" id="feedback-${index}"></div>
     `;
 
@@ -105,8 +105,8 @@ async function matricular(idTurma, index) {
 
         // ✅ Sucesso
         feedback.className   = 'feedback sucesso';
-        feedback.textContent = '✓ Matrícula realizada com sucesso!';
-        btn.textContent      = 'MATRICULADO ✓';
+        feedback.textContent = '✓ Matrícula solicitada com sucesso!';
+        btn.textContent      = 'MATRICULA SOLICITADA ✓';
 
     } catch (erro) {
         // ❌ Erro (sem vagas, já matriculado, etc.)
@@ -118,7 +118,7 @@ async function matricular(idTurma, index) {
             btn.textContent = 'NÃO DISPONÍVEL';
         } else {
             btn.disabled    = false;
-            btn.textContent = 'MATRICULAR';
+            btn.textContent = 'SOLICITAR MATRICULAR';
         }
     }
 }
