@@ -109,14 +109,15 @@ async function lancarNota(idMatricula, index) {
         return;
     }
 
-    btn.disabled    = true;
-    btn.textContent = '...';
+    btn.disabled         = true;
+    btn.textContent      = '...';
     feedback.className   = 'feedback-inline';
     feedback.textContent = '';
 
     try {
-        await postNota(idMatricula, nota);
+        const resultado = await postNota(idMatricula, nota);
 
+        input.value          = resultado.nota; // ← mostra a nota retornada pela API
         feedback.className   = 'feedback-inline sucesso';
         feedback.textContent = '✓ Lançada!';
         btn.textContent      = 'ATUALIZAR';
@@ -127,7 +128,7 @@ async function lancarNota(idMatricula, index) {
         feedback.textContent = erro.message;
         btn.textContent      = 'LANÇAR';
         btn.disabled         = false;
-    }
+    } 
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────

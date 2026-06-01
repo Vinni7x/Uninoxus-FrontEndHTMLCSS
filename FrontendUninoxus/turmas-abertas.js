@@ -13,9 +13,9 @@ async function fetchPerfilAluno(matriculaAluno) {
 
 // GET /turmas/{idCurso}  →  List<TurmaResponseDTO>
 async function fetchTurmasAbertas(idCurso) {
-    const r = await fetch(`${API_BASE}/turmas/${idCurso}`);
+    const r = await fetch(`${API_BASE}/turmas/${idCurso}/turmasabertas/${MATRICULA_ALUNO}`);
     if (!r.ok) throw new Error('Erro ao buscar turmas abertas.');
-    return r.json();
+    return r.json(); 
 }
 
 // POST /matriculas  body: { matriculaAluno, idTurma }  →  MatriculaResponseDTO
